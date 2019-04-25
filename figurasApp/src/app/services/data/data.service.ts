@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
-// import { AngularFirestore } from '@angular/fire/firestore';
-// import { Observable } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
    
+  
   constructor(
-    // private angularFirestore: AngularFirestore
+    private angularFirestore: AngularFirestore
     ) {
   }
 
@@ -20,9 +21,9 @@ export class DataService {
   //   return  this.angularFirestore.collection<Usuario>('users', ref => ref.where('email', '==', email)).valueChanges();
  
   // }
-  // getAllElementos(): Observable<Elemento[]> {
-  //   return this.angularFirestore.collection<Elemento>('shapes').valueChanges();
-  // }
+  getAllElementos(): Observable<Elemento[]> {
+     return this.angularFirestore.collection<Elemento>('shapes').valueChanges();
+  }
   // getFormulasToElemento() {
   //   return this.angularFirestore.doc<Elemento>('shapes')
   //     .collection<Formula>('formulas').valueChanges();

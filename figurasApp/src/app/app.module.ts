@@ -17,6 +17,15 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { RecoveryComponent } from './components/recovery/recovery.component';
 
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
+AngularFireModule.initializeApp(environment.firebase)
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +41,11 @@ import { RecoveryComponent } from './components/recovery/recovery.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    AngularFireModule,
+    AngularFireAuthModule,
+    AngularFireStorageModule,
+    AngularFirestoreModule
   ],
   providers: [DataService, LoginService, AuthenticationGuard, AuthorizationGuard],
   bootstrap: [AppComponent]

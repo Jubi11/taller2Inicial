@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core'; 
-import { Router } from '@angular/router';
+import { Router, Data } from '@angular/router';
+import { DataService } from 'src/app/services/data/data.service';
+
 
 @Component({
   selector: 'app-secure',
@@ -8,8 +10,10 @@ import { Router } from '@angular/router';
 })
 export class SecureComponent implements OnInit {
   
-  constructor(private router:Router) {
-      
+  
+
+  constructor(private router:Router, dataService: DataService) {
+    //this.elementos$ = dataService.getAllElementos();
    }
 
   ngOnInit() {
