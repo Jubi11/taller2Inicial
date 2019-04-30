@@ -1,0 +1,15 @@
+.contenedor{
+    margin-top: 30px;
+    padding: 15px;
+    border: 2px dashed grey;
+    border-radius: 3px;
+    width: 100%;
+    height: 92vh;
+    text-align: center;
+}
+
+.contenedor p{
+    color: rgba(1,1,1, 0.5);
+    margin-top: 12%;
+    font-size: 1.2rem;
+}

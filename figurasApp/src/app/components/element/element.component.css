@@ -1,0 +1,19 @@
+.contenedor{
+    margin-top: 30px;
+    padding: 15px;
+    border: 2px dashed grey;
+    border-radius: 3px;
+    width: 100%;
+    height: 92vh;
+    text-align: center;
+}
+
+.contenedor h1{
+    margin-bottom: 30px;
+}
+
+.contenedor button{
+    margin: 15px;
+    margin-top: 150px;
+    width: 150px;
+}

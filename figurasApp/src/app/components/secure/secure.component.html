@@ -1,20 +1,31 @@
-<div class="container-fluid d-flex h-100 flex-column">
-    <div class="row h-100">
-        <div class="col-4 bg-primary">
-            secure
-            <button class="btn btn-outline-dark" (click)="goTo('/secure/element/triangle')">Triangle</button>
-            <button class="btn btn-outline-dark" (click)="goTo('/secure/element/square')">Square</button>
-            <button class="btn btn-outline-dark" (click)="goTo('/about-us')">About Us</button>
-        </div>
-        <div class="col-12">
-            <nav class="nav flex-column pt-3 height-75" *ngIf="elementos$">
-                <a class="nav-link" [routerLink]="['/secure','element', item.descripcion]" routerLinkActive="text-bold" *ngFor="let item of (elementos$| async)">{{item.descripcion}}</a>
-            </nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3 bg-primary menu">
+            <h5>Bienvenido</h5>
+            <h4>Josué Barrientos</h4>
+            <ul class="lista-menu">
+                <li>
+                    <a class="nav-link" [routerLink]="['/secure','element', item.descripcion]" routerLinkActive="text-bold" *ngFor="let item of (elementos$| async)">{{item.descripcion}}</a>
+                </li>
+            </ul>
+            <!-- <nav class="nav flex-column pt-3 height-75" *ngIf="elementos$">
+                
+            </nav> -->
             <nav class="nav flex-column height-75" *ngIf="!elementos$">
                 <span class="nav-link"> <i class="fa fa-info-circle" aria-hidden="true"> </i> No hay items</span>
             </nav>
+
+            <div class="divBotones">
+                    <button class="btn btnMenu" (click)="goTo('/about-us')">About Us</button>
+                    <button class="btn btnMenu" (click)="goTo('/about-us')">Log Out</button>
+            </div>
         </div>
-        <div class="col-8  bg-secondary">
+        <!-- <div class="col-4 bg-primary">
+            <button class="btn btn-outline-dark" (click)="goTo('/secure/element/triangle')">Triangle</button>
+            <button class="btn btn-outline-dark" (click)="goTo('/secure/element/square')">Square</button>
+            <button class="btn btn-outline-dark" (click)="goTo('/about-us')">About Us</button>
+        </div> -->
+        <div class="col-9 contenedor">
             <router-outlet></router-outlet>
         </div>
     </div>

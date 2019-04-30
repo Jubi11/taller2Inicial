@@ -1,7 +1,6 @@
-<div class="row h-100">
-    <div class="col">
-        element
-        <button class="btn btn-outline-dark" (click)="goTo('/secure/principal')">Principal</button>
-    </div>
-
+<div class="contenedor">
+    <h1 *ngFor="let item of (elementos$| async)">{{item.descripcion}}</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde cum, hic corrupti, enim quae labore fugiat, eos distinctio placeat omnis sint fuga ullam itaque libero! Earum voluptatem deleniti odit placeat?</p>
+    <button class="btn btn-primary" (click)="goTo('/secure/principal')">Fórmulas</button>
+    <button class="btn btn-primary" (click)="goTo('/secure/principal')">Imágenes</button>
 </div>
