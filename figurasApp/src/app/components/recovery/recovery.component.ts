@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/services/login/login.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-recovery',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecoveryComponent implements OnInit {
 
-  constructor() { }
+  recoveryForm = new FormGroup({
+    email: new FormControl(''),
+  });
+
+  constructor(private loginService: LoginService) {
+    this.loginService.setTitulo('Recovery'); 
+  }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    //console.warn(this.recoveryForm.value.email);
   }
 
 }

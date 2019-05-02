@@ -1,0 +1,31 @@
+
+.login{
+    margin-top: calc(40vh - 175px);
+    padding: 30px;
+    background: rgba(81, 158, 9, 0.8);
+    border-radius: 20px;
+    color: white;
+}
+
+.login h3{
+    text-align: center;
+}
+
+.login a{
+    color: white;
+}
+
+.btn{
+    width: 80px;
+}
+
+
+.divRegistro{
+    text-align: center;
+}
+
+.divRegistro a{
+    color: grey;
+    font-size: 1.2rem;
+}
+

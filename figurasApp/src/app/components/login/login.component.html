@@ -1,3 +1,32 @@
-<p>
-  login works!
-</p>
+
+
+<div class="login col-6 offset-3">
+  <h3>Iniciar Sesión</h3>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  
+      <div class="form-group">
+          <label for="name">Usuario:</label>
+          <input type="text" class="form-control" placeholder="Ingrese su Usuario" formControlName="name">
+      </div>
+
+      <div class="form-group">
+          <label for="pass">Contraseña:</label>
+          <input type="text" class="form-control" placeholder="Ingrese su Contraseña" formControlName="pass">
+      </div>
+
+      <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Log In</button>
+      </div>
+      <a [routerLink]="['/account/recovery']">Perdí mi contraseña</a>
+    </form>
+</div>
+
+<div class="col-6 offset-3 mt-3 divRegistro">
+    <div>
+        <a [routerLink]="['/account/register']">Crear una cuenta</a>
+    </div>
+</div>
+
+
+
+

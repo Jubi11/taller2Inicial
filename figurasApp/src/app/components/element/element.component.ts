@@ -14,6 +14,7 @@ export class ElementComponent implements OnInit {
   elemento$: Elemento[];
   isElementRoute: boolean;
   nombre: string = null;
+  formulas$: Formula[];
 
   constructor(public router: Router, public dataService: DataService, private route: ActivatedRoute) {
     this.nombre = this.route.snapshot.params['elementName'];
@@ -30,4 +31,43 @@ export class ElementComponent implements OnInit {
   goTo(route:string){
     this.router.navigateByUrl(route);
   }
+
+  mostrarFormulas() {
+    const div1 = document.querySelector('#info');
+    div1.className = 'col-6 linea';
+    const div = document.querySelector('#formulas');
+    div.className = 'col-6 linea';
+    const div2 = document.querySelector('#imagenes');
+    div2.className = 'd-none';
+  }
+
+  mostrarImagenes() {
+    const div1 = document.querySelector('#info');
+    div1.className = 'col-6 linea';
+    const div2 = document.querySelector('#formulas');
+    div2.className = 'd-none';
+    const div = document.querySelector('#imagenes');
+    div.className = 'col-6 linea';
+  }
+
+  ocultarFormulas() {
+    const div1 = document.querySelector('#info');
+    div1.className = 'col-12 linea';
+    const div = document.querySelector('#formulas');
+    div.className = 'd-none';
+    const div2 = document.querySelector('#imagenes');
+    div2.className = 'd-none';
+  }
+
+  ocultarImagenes() {
+    const div1 = document.querySelector('#info');
+    div1.className = 'col-12 linea';
+    const div2 = document.querySelector('#formulas');
+    div2.className = 'd-none';
+    const div = document.querySelector('#imagenes');
+    div.className = 'd-none';
+  }
+
+
+
 }

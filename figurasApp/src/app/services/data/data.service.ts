@@ -29,7 +29,7 @@ export class DataService {
   //     .collection<Formula>('formulas').valueChanges();
   // }
   getElementosByName(term: string): Observable<Elemento[]> { 
-    return  this.angularFirestore.collection<Elemento>('shapes', ref => ref.where('descripcion', '==', term)).valueChanges();
+    return  this.angularFirestore.collection<Elemento>('shapes', ref => ref.where('nombre', '==', term)).valueChanges();
   }
   // deleteElemento(elemento: Elemento) { 
   //   this.angularFirestore.collection<Elemento>('shapes').doc(elemento.id).delete();

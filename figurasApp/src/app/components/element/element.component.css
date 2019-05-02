@@ -1,11 +1,25 @@
 .contenedor{
-    margin-top: 30px;
+    margin-top: 20px;
     padding: 15px;
-    border: 2px dashed grey;
-    border-radius: 3px;
+    /*border: 2px dashed grey;*/
+    /*border-radius: 3px;*/
     width: 100%;
+    margin-left: 3px;
     height: 92vh;
     text-align: center;
+}
+
+.linea{
+    outline: 2px dashed grey;
+    outline-offset: -10px;
+    padding-top: 25px;
+    padding-right: 35px;
+    padding-left: 35px;
+    padding-bottom: 25px;
+}
+
+.row{
+    padding: 5px;
 }
 
 .contenedor h1{
@@ -16,4 +30,13 @@
     margin: 15px;
     margin-top: 150px;
     width: 150px;
+}
+
+.divBoton button{
+    margin-top: 50px;
+}
+
+p{
+    font-size: 20px;
+    margin-top: 20px;
 }

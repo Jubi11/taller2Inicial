@@ -23,7 +23,7 @@ const routes: Routes = [
         path: 'element/:elementName', component: ElementComponent  },
     ]
   },
-  { path: '**', pathMatch: 'full', redirectTo: 'secure/principal' }
+  { path: '**', pathMatch: 'full', redirectTo: 'account/login' }
 ];
 
 @NgModule({

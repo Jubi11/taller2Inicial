@@ -5,7 +5,7 @@
             <h4>Josué Barrientos</h4>
             <ul class="lista-menu">
                 <li>
-                    <a class="nav-link" [routerLink]="['/secure','element', item.descripcion]" routerLinkActive="text-bold" *ngFor="let item of (elementos$| async)">{{item.descripcion}}</a>
+                    <a class="nav-link" [routerLink]="['/secure','element', item.nombre]" routerLinkActive="text-bold" *ngFor="let item of (elementos$| async)">{{item.nombre}}</a>
                 </li>
             </ul>
             <!-- <nav class="nav flex-column pt-3 height-75" *ngIf="elementos$">

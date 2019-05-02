@@ -1,2 +1,14 @@
-account
-<router-outlet></router-outlet>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3 bg-account menu order-last">
+            <h5>Bienvenido</h5>
+            <h2 class="titulo">{{titulo}}</h2>
+            <div class="divBotones">
+                <button class="btn btnMenu" (click)="goTo('/about-us')">About Us</button>
+            </div>
+        </div>
+        <div class="col-9 linea">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+
+.linea{
+    outline: 2px dashed grey;
+    outline-offset: -30px;
+    padding-top: 45px;
+    padding-right: 55px;
+    padding-left: 55px;
+    padding-bottom: 45px;
+}
+
+
+.bg-account {
+    background-color: indigo;
+}
+
+h5{
+    padding-top: 30px;
+    font-weight: normal;
+}
+
+h4, h5, h2{
+    padding-left: 10px;
+    color: white;
+}
+
+h2{
+    margin-top: 40px;
+}
+
+.menu{
+    height: 100vh;
+}
+
+.divBotones{
+    position: absolute;    
+    bottom: 15%;
+}
+
+button{
+    width: 180px;
+}
+
+.btnMenu{
+    color: white;
+    border: 1px solid white;
+    border-radius: 0px;
+    margin-top: 10px;
+}
+
+.btnMenu:hover{
+    background-color: cadetblue;
+}

@@ -1,6 +1,30 @@
-<div class="contenedor">
-    <h1 *ngFor="let item of (elementos$| async)">{{item.descripcion}}</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde cum, hic corrupti, enim quae labore fugiat, eos distinctio placeat omnis sint fuga ullam itaque libero! Earum voluptatem deleniti odit placeat?</p>
-    <button class="btn btn-primary" (click)="goTo('/secure/principal')">Fórmulas</button>
-    <button class="btn btn-primary" (click)="goTo('/secure/principal')">Imágenes</button>
+<div class="contenedor row" *ngFor="let item of (elementos$| async)">
+    <div class="col-12 linea" id="info">
+            <h1>{{item.nombre}}</h1>
+            <p>{{item.descripcion}} <a href="{{item.referencias.enlace}}">{{item.referencias.sitio}}</a></p>
+            <button class="btn btn-primary" (click)="mostrarFormulas()">Fórmulas</button>
+            <button class="btn btn-primary" (click)="mostrarImagenes()">Imágenes</button>
+    </div>
+
+    <div class="d-none" id="formulas">
+        <h1>Fórmulas</h1>
+        <div class="divFormula">
+            <h3>{{item.formulas.titulo}}</h3>
+            <p>{{item.formulas.formula}}</p>
+        </div>
+        <div class="divBoton">
+            <button class="btn btn-primary" (click)="ocultarFormulas()">Ocultar</button>
+        </div>
+    </div>
+
+    <div class="d-none" id="imagenes">
+            <h1>Imágenes</h1>
+            <div class="row" *ngFor="let imagen of item.imagenes">
+                <h3 class="col-6 align-self-center">{{item.nombre}}</h3>
+                <img class="col-6" src="{{imagen}}" alt="Imagen" style="height: 50%;">
+            </div>
+            <div class="divBoton">
+                <button class="btn btn-primary" (click)="ocultarImagenes()">Ocultar</button>
+            </div>
+        </div>
 </div>
