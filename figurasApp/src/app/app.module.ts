@@ -26,6 +26,9 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
+import { ElementAdminComponent } from './components/element-admin/element-admin.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +39,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AccountComponent,
     LoginComponent,
     RegisterComponent,
-    RecoveryComponent
+    RecoveryComponent,
+    ElementAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -47,9 +51,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     AngularFireStorageModule,
     AngularFirestoreModule,
     ReactiveFormsModule,
+    SnotifyModule,
     AngularFireModule.initializeApp(environment.firebase)
   ],
-  providers: [DataService, LoginService, AuthenticationGuard, AuthorizationGuard],
+  providers: [DataService, LoginService, AuthenticationGuard, AuthorizationGuard,
+    { provide: 'SnotifyToastConfig', useValue: ToastDefaults},
+    SnotifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

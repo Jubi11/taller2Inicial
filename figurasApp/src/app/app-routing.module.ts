@@ -8,9 +8,10 @@ import { AccountComponent } from './components/account/account.component';
 import { LoginComponent } from './components/login/login.component';
 import { RecoveryComponent } from './components/recovery/recovery.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ElementAdminComponent } from './components/element-admin/element-admin.component';
+import { AuthorizationGuard } from './guards/authorization/authorization.guard';
 
 const routes: Routes = [
-
   { path: 'about-us', component: AboutUsComponent },
   {  path: 'account', component: AccountComponent, children: [
       { path: 'login', component: LoginComponent },
@@ -21,6 +22,8 @@ const routes: Routes = [
       { path: 'principal', component: PrincipalComponent },
       {
         path: 'element/:elementName', component: ElementComponent  },
+      {  path: 'element/:elementName/edit', component: ElementAdminComponent,
+        canActivate: [AuthorizationGuard], data: {role: 'Math'}  },
     ]
   },
   { path: '**', pathMatch: 'full', redirectTo: 'account/login' }

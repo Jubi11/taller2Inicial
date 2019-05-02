@@ -13,28 +13,30 @@ export class DataService {
     ) {
   }
 
-  // saveUsuario(user: Usuario) { 
-  //   this.angularFirestore.collection<Usuario>('users').add(user)
-     
-  // }
-  // getUsuarioByEmail(email: string): Observable<Usuario[]> {
-  //   return  this.angularFirestore.collection<Usuario>('users', ref => ref.where('email', '==', email)).valueChanges();
- 
-  // }
+  saveUsuario(user: Usuario) { 
+    this.angularFirestore.collection<Usuario>('users').add(user)  
+  }
+
+  getUsuarioByEmail(email: string): Observable<Usuario[]> {
+    return  this.angularFirestore.collection<Usuario>('users', ref => ref.where('email', '==', email)).valueChanges();
+  }
+
   getAllElementos(): Observable<Elemento[]> {
      return this.angularFirestore.collection<Elemento>('shapes').valueChanges();
   }
+
   // getFormulasToElemento() {
   //   return this.angularFirestore.doc<Elemento>('shapes')
   //     .collection<Formula>('formulas').valueChanges();
   // }
+
   getElementosByName(term: string): Observable<Elemento[]> { 
     return  this.angularFirestore.collection<Elemento>('shapes', ref => ref.where('nombre', '==', term)).valueChanges();
   }
+
   // deleteElemento(elemento: Elemento) { 
   //   this.angularFirestore.collection<Elemento>('shapes').doc(elemento.id).delete();
   // }
-
 
   // saveElemento(elemento: Elemento) {
   //   if (elemento.id) {

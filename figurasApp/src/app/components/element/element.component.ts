@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/services/data/data.service';
 import { Observable } from 'rxjs';
+import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
   selector: 'app-element',
@@ -16,9 +17,18 @@ export class ElementComponent implements OnInit {
   nombre: string = null;
   formulas$: Formula[];
 
-  constructor(public router: Router, public dataService: DataService, private route: ActivatedRoute) {
+  editar: boolean;
+
+  constructor(public router: Router, public dataService: DataService, private route: ActivatedRoute, loginService: LoginService) {
     this.nombre = this.route.snapshot.params['elementName'];
     this.elementos$ = dataService.getElementosByName(this.nombre);
+    if(loginService.userHasRole("Math")){
+      this.editar = true;
+    }
+    else
+    {
+      this.editar = false;
+    }
   }
 
   ngOnInit() {

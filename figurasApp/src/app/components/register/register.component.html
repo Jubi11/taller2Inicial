@@ -4,16 +4,21 @@
     
         <div class="form-group">
             <label for="email">Correo:</label>
-            <input type="text" class="form-control" placeholder="Ingrese su Correo Eléctronico" formControlName="email">
+            <input type="email" class="form-control" placeholder="Ingrese su Correo Eléctronico" formControlName="email">
         </div>
   
         <div class="form-group">
             <label for="pass">Contraseña:</label>
-            <input type="text" class="form-control" placeholder="Ingrese su Contraseña" formControlName="pass">
+            <input type="password" class="form-control" placeholder="Ingrese su Contraseña" formControlName="pass">
         </div>
+
+        <div class="form-group">
+                <label for="pass">Confirmar Contraseña:</label>
+                <input type="password" class="form-control" placeholder="Vuelva a escribir la Contraseña" formControlName="confirm">
+            </div>
   
         <div class="d-flex justify-content-end">
-            <button type="submit" class="btn btn-primary" [disabled]="!registroForm.valid">Registrarse</button>
+            <button type="submit" class="btn btn-primary" [disabled]="!registroForm.valid" (click)="register()">Registrarse</button>
         </div>
         <a [routerLink]="['/account/login']">Iniciar Sesión</a>
       </form>

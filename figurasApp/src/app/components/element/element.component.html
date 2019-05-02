@@ -4,6 +4,7 @@
             <p>{{item.descripcion}} <a href="{{item.referencias.enlace}}">{{item.referencias.sitio}}</a></p>
             <button class="btn btn-primary" (click)="mostrarFormulas()">Fórmulas</button>
             <button class="btn btn-primary" (click)="mostrarImagenes()">Imágenes</button>
+            <button class="btn btn-primary" *ngIf="editar">Editar</button>
     </div>
 
     <div class="d-none" id="formulas">
