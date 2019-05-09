@@ -74,7 +74,7 @@ export class LoginService {
     });
   }
 
-  userHasRole(role:string){ 
+  userHasRole(role:string){
     return this.currentUser && this.currentUser.roles.includes(role);
   }
 

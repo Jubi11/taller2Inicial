@@ -19,10 +19,14 @@ export class ElementComponent implements OnInit {
 
   editar: boolean;
 
-  constructor(public router: Router, public dataService: DataService, private route: ActivatedRoute, loginService: LoginService) {
+  constructor(public router: Router, public dataService: DataService, private route: ActivatedRoute, private loginService: LoginService) {
     this.nombre = this.route.snapshot.params['elementName'];
     this.elementos$ = dataService.getElementosByName(this.nombre);
-    if(loginService.userHasRole("Math")){
+    this.verificarRol();
+  }
+
+  verificarRol(){
+    if(this.loginService.userHasRole("Math")){
       this.editar = true;
     }
     else
@@ -35,6 +39,7 @@ export class ElementComponent implements OnInit {
     //Realizar el subscribe aquí
     this.route.params.subscribe(routeParams => {
       this.elementos$ = this.dataService.getElementosByName(routeParams.elementName);
+      this.verificarRol();
     });
   }
 

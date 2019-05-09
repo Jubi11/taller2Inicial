@@ -1,3 +1,85 @@
-<p>
-  element-admin works!
-</p>
+
+<div class="container">
+  <div class="row">
+      
+<h2>Información de Figuras</h2>
+
+<form [formGroup]="formGroup" id="formGroup" class="row">
+
+    <div class="form-group col-12">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" formControlName="nombre" id="nombre" placeholder="Escriba el nombre">
+        <div *ngIf="formGroup.controls['nombre'].dirty">
+            <div class="form-control-feedback text-danger" *ngIf="formGroup.controls['nombre'].errors?.required">
+                El nombre es requerido
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group col-12" formArrayName="imagenes">
+        <label for="titulo">Imágenes</label>
+        <input type="text" (keydown)="borrarImagen($event,i)" [formControlName]="i" *ngFor="let imagen of formGroup.controls['imagenes'].controls; let i = index" class="form-control mb-2" id="imagen" placeholder="Escriba la url de la imagen">
+        <div *ngIf="formGroup.controls['imagenes'].dirty">
+            <div class="form-control-feedback text-danger" *ngIf="formGroup.controls['imagenes'].errors?.required">
+                Debe completar la url de cada imagen
+            </div>
+        </div>
+        <button class="btn btn-outline-primary btn-sm" type="button" (click)="agregarImagen()"> Agregar</button>
+    </div>
+
+    <div class="form-group col-12">
+        <label for="titulo">Descripción</label>
+        <textarea type="text" class="form-control" formControlName="descripcion" id="descripcion" placeholder="Escriba la descripción">
+        </textarea>
+        <div *ngIf="formGroup.controls['descripcion'].dirty">
+            <div class="form-control-feedback text-danger" *ngIf="formGroup.controls['descripcion'].errors?.required">
+                La descripción es requerida
+            </div>
+            <div class="form-control-feedback text-danger" *ngIf="formGroup.controls['descripcion'].errors?.minlength">
+                La descripción debe ser de almenos 15 caracteres
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group col-12" formGroupName="referencia">
+
+        <label for="link">Vínculo de referencia</label>
+        <input type="text" class="form-control" formControlName="link" id="link" placeholder="Escriba el vínculo">
+        <div *ngIf="formGroup.controls['referencia'].controls['link'].dirty">
+            <div class="form-control-feedback text-danger" *ngIf="formGroup.controls['referencia'].controls['link'].errors?.required">
+                El vínculo de la referencia es requerido
+            </div>
+        </div>
+    </div>
+    <div class="form-group col-12" formGroupName="referencia">
+        <label for="titulo">Título de referencia</label>
+        <input type="text" class="form-control" formControlName="titulo" id="titulo" placeholder="Escriba el titulo">
+        <div *ngIf="formGroup.controls['referencia'].controls['titulo'].dirty">
+            <div class="form-control-feedback text-danger" *ngIf="formGroup.controls['referencia'].controls['titulo'].errors?.required">
+                El título de la referencia es requerido
+            </div>
+        </div>
+    </div>
+    <div class="form-group col-12">
+        <label>Fórmulas</label>
+        <div formArrayName="formulas" *ngFor="let item of formGroup.get('formulas').controls; let i = index;">
+            <div [formGroupName]="i">
+                <input class="form-control mb-2" id="formula" formControlName="formula" placeholder="Formula" (keydown)="borrarFormula($event,i)">
+                <input class="form-control mb-2" id="titulo" formControlName="titulo" placeholder="Título" (keydown)="borrarFormula($event,i)">
+            </div>
+        </div>
+        <div *ngIf="formGroup.controls['formulas'].dirty">
+            <div class="form-control-feedback text-danger" *ngIf="formGroup.controls['formulas'].errors?.required">
+                Debe completar el titulo y la formula
+            </div>
+        </div>
+        <button class="btn btn-outline-primary btn-sm" type="button" (click)="agregarFormula()"> Agregar</button>
+    </div>
+
+</form>
+
+<button type="submit" class="btn btn-outline-primary float-right mr-2" [ngClass]="{'disabled':!formGroup.valid}" (click)="guardar(elementoId)">Actualizar</button>
+<button type="submit" class="btn btn-outline-secondary float-right mr-2" [ngClass]="{'disabled':!formGroup.valid}" (click)="guardar('')">Guardar Nuevo</button>
+  </div>
+</div>
+
